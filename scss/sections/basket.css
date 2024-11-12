@@ -1,0 +1,30 @@
+br.desc {
+  display: block;
+}
+@media (max-width: 425px) {
+  br.desc {
+    display: none;
+  }
+}
+br.mob {
+  display: none;
+}
+@media (max-width: 425px) {
+  br.mob {
+    display: block;
+  }
+}
+
+.basket {
+  position: absolute;
+  top: 0;
+  left: 70%;
+  width: 30%;
+  height: 100%;
+  border-left: 1px solid #2b3e51;
+  background-color: #f4f6f7;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+}
+.basket .table {
+  display: grid;
+}/*# sourceMappingURL=basket.css.map */

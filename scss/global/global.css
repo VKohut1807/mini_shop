@@ -1,0 +1,76 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  box-sizing: border-box;
+  width: 100%;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  min-height: 100dvh;
+}
+body.modal-open {
+  overflow: hidden;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+figure,
+blockquote,
+dl,
+dd,
+ul,
+ol {
+  color: #2b3e51;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+svg {
+  display: block;
+}
+
+.main {
+  display: block;
+  flex-grow: 1;
+  height: 100%;
+}
+
+.wrapper {
+  width: 73%;
+  margin: 0 auto;
+}
+@media (max-width: 768px) {
+  .wrapper {
+    width: 90%;
+  }
+}/*# sourceMappingURL=global.css.map */

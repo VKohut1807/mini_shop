@@ -1,0 +1,164 @@
+@import "../config/config.scss";
+
+.main {
+  position: relative;
+
+  .products-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+
+    @include break("lg") {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    @include break("md") {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .product-box {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      padding: 1rem;
+      background-color: $gray;
+
+      &:hover {
+        .image {
+          img {
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-110%);
+
+            &[data-hover-image] {
+              opacity: 1;
+              visibility: visible;
+              transform: translateY(0%);
+            }
+          }
+        }
+        .description {
+          .footer-card {
+            .add-to-basket {
+              opacity: 1;
+              visibility: visible;
+
+              svg {
+                path {
+                  fill: $primary;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      .image {
+        overflow: hidden;
+        background-color: #fff;
+        padding: 1rem;
+        position: relative;
+
+        img {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0%);
+          transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+            visibility 0.3s ease-in-out;
+
+          &[data-hover-image] {
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+            right: 1rem;
+            bottom: 1rem;
+            top: 0;
+            left: 0;
+            width: calc(100% - 2rem);
+            height: calc(100% - 2rem);
+            opacity: 0;
+            padding: 1rem;
+            transform: translateY(110%);
+            visibility: hidden;
+            transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out,
+              visibility 0.3s ease-in-out;
+          }
+        }
+      }
+
+      .fade-out {
+        opacity: 0;
+      }
+
+      .description {
+        display: flex;
+        flex-direction: column;
+        gap: 0.75rem;
+
+        h3 {
+          font-size: 1.15rem;
+          font-weight: 700;
+          color: $dark;
+          text-align: center;
+
+          @include break("md") {
+            font-size: 1rem;
+          }
+        }
+
+        .footer-card {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-between;
+          align-items: center;
+
+          .price {
+            margin-top: auto;
+            color: $primary;
+            font-size: 0.785rem;
+            font-weight: 600;
+          }
+
+          .add-to-basket {
+            opacity: 0;
+            visibility: hidden;
+            padding: 0.25rem;
+            background-color: #fff;
+            color: $primary;
+            cursor: pointer;
+            border: 1px solid $primary;
+            font-size: 1rem;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out,
+              background-color 0.3s ease-in-out;
+
+            @include break("md") {
+              opacity: 1;
+              visibility: visible;
+            }
+
+            &:hover {
+              background-color: $primary;
+
+              svg {
+                path {
+                  fill: #fff;
+                }
+              }
+            }
+
+            svg {
+              width: 1.5rem;
+              height: auto;
+              user-select: none;
+
+              path {
+                fill: $primary;
+                transition: fill 0.3s ease-in-out;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

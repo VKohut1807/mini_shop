@@ -1,0 +1,134 @@
+@import "../config/config.scss";
+
+.header {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background-color: $gray;
+  padding: 1.5rem 0;
+  border-bottom: 1px solid $dark;
+  margin-bottom: 3rem;
+  z-index: 15;
+
+  .header-box {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    @include break("md") {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .logo {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 0.5rem;
+
+      svg {
+        height: 3rem;
+        width: auto;
+
+        @include break("sm") {
+          height: 2rem;
+        }
+
+        path {
+          fill: $dark;
+        }
+      }
+
+      .shop-name {
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: $dark;
+        text-transform: uppercase;
+
+        @include break("sm") {
+          font-size: 1.25rem;
+        }
+      }
+    }
+
+    .nav {
+      .group {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 1rem;
+
+        .element {
+          .basket-icon {
+            padding: 0.25rem;
+            background-color: inherit;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            border: 1px solid #fff;
+            transition: border 0.3s ease-in-out, transform 0.3s ease-in-out,
+              box-shadow 0.3s ease-in-out;
+
+            &:hover {
+              border: 1px solid $primary;
+              transform: translateY(-0.15rem);
+              box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.4);
+            }
+
+            &::after {
+              content: attr(data-count-products);
+              position: absolute;
+              bottom: 0;
+              right: 0;
+              width: 1rem;
+              height: 1rem;
+              background-color: $primary;
+              border-radius: 50%;
+              color: #fff;
+              display: flex;
+              flex-direction: column;
+              align-items: center;
+              justify-content: center;
+            }
+
+            svg {
+              height: 1.5rem;
+              width: 1.5rem;
+              user-select: none;
+              pointer-events: none;
+
+              path {
+                fill: $primary;
+              }
+            }
+          }
+
+          &:hover {
+            .link {
+              color: $primary;
+              transform: scale(1.05);
+            }
+          }
+
+          .link {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: $dark;
+            display: inline-block;
+            transition: transform 0.3s ease-in-out, color 0.3s ease-in-out;
+
+            @include break("sm") {
+              font-size: 1rem;
+            }
+
+            &.active {
+              color: $primary;
+              transform: scale(1.05);
+            }
+          }
+        }
+      }
+    }
+  }
+}
